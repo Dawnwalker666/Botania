@@ -21,7 +21,39 @@ We cannot provide any ETA (even a rough one) due to the complexity of the work i
 of time the maintainers are able to spend on this effort.
 In the meantime, Botania for Minecraft 1.20.1 may still receive updates for bug fixes.
 
+---
+
+{% include changelog_header.html version="1.20.1-453" %}
+
+* Change: Rod of the Seas can fill all kinds of fluid container items in the inventory, not just empty buckets
+* Fix: Hyacidus wasting mana on immune mobs that aren't undead
+* Fix: Various functional flowers never sent client updates when they used mana to perform their function
+* Fix: Rod of the Bifrost consumes mana again (AidaNightcore)
+* Fix: Cooldown of Thermalily and Munchdew can no longer be skipped by breaking the flower before it goes into cooldown
+* API: The `BlockProvider` interface now defines a method that lets others find out what the provider's "primary" block
+  is. This is meant to be used by implementers of features that don't look for one specific block type, but need to know
+  what's currently available. (ChiefArug)
+* Language updates:
+  * ko_kr updated (UnineVesiKass)
+  * zh_cn updated (Dawnwalker666, MuuuShin)
+  * zh_tw updated (Dawnwalker666)
+
+---
+
+{% include changelog_header.html version="1.20.1-452" %}
+
+* Fix: Random, potentially persistent crash in ManaSparkEntity.filterTransfers() after breaking the block a spark is attached to
+* Language updates:
+  * de_de updated with some missing translations
+  * Various minor structural fixes to several translation files
+
+---
+
+{% include changelog_header.html version="1.20.1-451" %}
+
 * Add: Extrapolated Bucket can void fluids from modded blocks that support draining fluids into items used on them
+* Add: Block tag `botania:unsupported_platform_disguise` can be used to explicitly disallow incompatible blocks to be
+  used as the disguise for Abstruse or Spectral Platforms
 * Change: Terra Shatterer activation rules have been adjusted
   * With an item in the off-hand that item gets priority, unless sneaking and not aiming at any blocks
   * With an empty off-hand, sneak right-click toggles active state, unless at rank D (i.e. no stored mana)
@@ -35,11 +67,19 @@ In the meantime, Botania for Minecraft 1.20.1 may still receive updates for bug 
   * Open Parties and Claims – Its default configuration disallows unowned projectiles in claimed chunks, completely
     breaking mana spreaders. From Botania's side there is no good way to opt in, except to change semantics in regards
     to mana burst ownership, which would serve no purpose for Botania itself whatsoever.
+* Change: VMinus 3.2.0+ has been marked as incompatible due to the long-standing serious issues with recipes it causes
+  in Botania (and other mods)
 * Fix: Don't let Alfheim portal grab items in the tick it shuts down (e.g. for gluten reasons)
 * Fix: Astrolabe no longer attempts to place blocks in the player's head location while underwater
 * Fix: Mana bursts going through a nether portal could cause lag spikes
 * Fix: Potential client memory leak in ManaNetworkHandler
 * Fix: Guardian of Gaia stopped teleporting until getting hit after a world reload
+* Fix: Elementium Axe beheading logic could run twice and still duplicate LootJS script executions on Forge
+* Fix: Player heads created with a written book would reset based on the given name when placed in the world
+* Fix: Rewrote dominant spark transfer logic to finally fix transfers incorrectly shutting down in certain situation (NEstoll)
+* Language updates:
+  * ko_kr updated (UnineVesiKass)
+  * Various minor typo and formatting fixes in the Lexica Botania
 
 ---
 
